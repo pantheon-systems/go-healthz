@@ -46,6 +46,10 @@ go healthServer.StartHealthz()
 
 Can be used as a Sensu check with the [http plugin](https://github.com/sensu-plugins/sensu-plugins-http), for example:
 
-    "command": "/path/to/ruby /path/to/check-http.rb -c /path/to/client/cert/cert.pem -q '\"Errors\":null' -C /path/to/ca.crt -u https://my.service.com/healthz"
+    "command": "/path/to/ruby /path/to/check-http.rb
+      -c /path/to/client/cert/cert.pem
+      -q '\"Errors\":null'
+      -C /path/to/ca.crt
+      -u https://my.service.com/healthz"
 
 Sensu alerts when the check either returns non-200 response, or does not contain `"Errors": null` in the body. This is useful as it communicates the error message and nature of the failure to the person reading the check result.
