@@ -12,7 +12,7 @@ This server does not use TLS, as most of our applications already run their own 
 
 ## Example usage
 
-## Setup and use
+### Setup and calling
 
 ```golang
 logger = logrus.WithField("component", "healthz")
@@ -35,6 +35,11 @@ config = healthz.Config{
     Log: logger, // logrus
     ServerErrorLog: log.New(logger.Logger.Writer(), "", 0), // stdlib log helper that sends http.Server errors to logrus.
 }
+healthServer, err := healthz.New(healthzConfig)
+if err != nil {
+    return err
+}
+go healthServer.StartHealthz()
 ```
 
 ## Sensu
