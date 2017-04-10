@@ -1,5 +1,7 @@
 # go-healthz
 
+    go get gopkg.in/pantheon-systems/go-healthz.v1
+
 Package that implements a healthz healthcheck server.
 
 Inspired by kelseyhightower:
