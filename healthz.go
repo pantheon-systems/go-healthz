@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"time"
@@ -38,11 +39,12 @@ type HTTPResponse struct {
 }
 
 type Config struct {
-	BindPort  int
-	BindAddr  string
-	Providers []ProviderInfo
-	Hostname  string
-	Log       logger
+	BindPort       int
+	BindAddr       string
+	Providers      []ProviderInfo
+	Hostname       string
+	Log            logger
+	ServerErrorLog *log.Logger
 }
 
 type HealthChecker struct {
@@ -82,6 +84,7 @@ func New(config Config) (*HealthChecker, error) {
 		WriteTimeout:   time.Second * 45,
 		MaxHeaderBytes: 1 << 20,
 		Handler:        mux,
+		ErrorLog:       config.ServerErrorLog,
 	}
 	return h, nil
 }

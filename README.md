@@ -35,7 +35,7 @@ config = healthz.Config{
         },
     },
     Log: logger, // logrus
-    ServerErrorLog: log.New(logger.Logger.Writer(), "", 0), // stdlib log helper that sends http.Server errors to logrus.
+    ServerErrorLog: stdlog.New(logger.Logger.Writer(), "", 0), // stdlib log helper that sends http.Server errors to logrus.
 }
 healthServer, err := healthz.New(config)
 if err != nil {
