@@ -1,0 +1,13 @@
+# Managed by github-terraform — do not edit manually
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "go-healthz"
+  description: "Package that implements a healthcheck server"
+  annotations:
+    "backstage.io/techdocs-ref": "dir:docs/"
+spec:
+  type: "unknown"
+  lifecycle: "experimental"
+  owner: "cms-platform"
