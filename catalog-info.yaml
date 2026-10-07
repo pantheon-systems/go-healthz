@@ -10,4 +10,4 @@ metadata:
 spec:
   type: "unknown"
   lifecycle: "experimental"
-  owner: "cms-platform"
+  owner: "site-experience"
